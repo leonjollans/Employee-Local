@@ -10,7 +10,11 @@ function onDeviceReady() {
     if (dbCreated)
     	db.transaction(getEmployees, transaction_error);
     else
-    	db.transaction(populateDB, transaction_error, populateDB_success);
+        db.transaction(populateDB, transaction_error, populateDB_success);
+
+    $('#debug-info').append(
+        '<li>db:' + (db == undefined ? 'not' : '') + ' created </li>' + 
+		'<li>dbCreated: ' + dbCreated + '</li>');
 }
 
 function transaction_error(tx, error) {
@@ -19,8 +23,8 @@ function transaction_error(tx, error) {
 }
 
 function populateDB_success() {
-	dbCreated = true;
     db.transaction(getEmployees, transaction_error);
+	dbCreated = true;
 }
 
 function getEmployees(tx) {
