@@ -7,13 +7,17 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 $(document).ready(function () {
 
-    alert("arse");
     $('#debug-info').empty();
     $('#debug-info').append('<li>jQuery:Available</li>');
 
+    setup();
 });
 
 function onDeviceReady() {
+    alert('device ready');
+}
+
+function setup() {
     db = window.openDatabase("EmployeeDirectoryDB", "1.0", "PhoneGap Demo", 200000);
     if (dbCreated)
     	db.transaction(getEmployees, transaction_error);
@@ -21,7 +25,8 @@ function onDeviceReady() {
         db.transaction(populateDB, transaction_error, populateDB_success);
 
     $('#debug-info').append(
-        '<li>db:' + (db == undefined ? 'not' : '') + ' created </li>' + 
+        '<li>db:' + (!db ? 'not' : '') + ' created </li>' +
+        '<li>iScroll:' + (!scroll ? 'not' : '') + ' created </li>' + 
 		'<li>dbCreated: ' + dbCreated + '</li>');
 }
 
