@@ -5,6 +5,14 @@ var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScro
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
+$(document).ready(function () {
+
+    alert("arse");
+    $('#debug-info').empty();
+    $('#debug-info').append('<li>jQuery:Available</li>');
+
+});
+
 function onDeviceReady() {
     db = window.openDatabase("EmployeeDirectoryDB", "1.0", "PhoneGap Demo", 200000);
     if (dbCreated)

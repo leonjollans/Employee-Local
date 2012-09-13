@@ -16,7 +16,7 @@ ul
 
 body {
 
-	width: : 100%;
+	width: 100%;
 	background: #DCDCDC;
 }
 
@@ -107,14 +107,13 @@ li .action-icon {
 }
 
 .header {
-	position:  absolute;
  	text-align: center;
  	background: #666666; /* for non-css3 browsers */
 	background: -webkit-gradient(linear, left top, left bottom, from(#666666), to(#666666), color-stop(.6,#333));
 	color: #FFFFFF;
-	top: 0px; 
-	height: 40px;
 	width: 100%;
+	margin: 0;
+	padding:10px;
 	border-bottom: solid 1px #444444;
 }
 
@@ -122,6 +121,7 @@ li .action-icon {
 	font-size: 16px;
 	font-weight: bold;
 	color: #FFFFFF;
+	margin:0;
 }
 
 .header > .nav {
@@ -138,31 +138,24 @@ li .action-icon {
 	color: #FFFFFF;
 }
 
-#header2 {
-	position: absolute;
+.subheader {
 	padding-top: 10px;
 	padding-left: 8px;
 	background: #ECEFF2; /* for non-css3 browsers */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FBFBFB), color-stop(100%,#ECEFF2));
 	color: #000000;
 	font-weight: bold;
-	top: 41px; 
 	height: 30px;
-	left: 0px;
-	right: 0px;
 	border-bottom: solid 1px #C8CBCE;
-	z-index:1;
 }
 
-#header2 > h2 {
+.subheader > h2 {
 	font-size: 14px;
 	padding:0px;
 	margin:0px;
 }
 
-#wrapper {
-	position: absolute; 
-	top: 82px; 
+.wrapper {
 	bottom: 0px;
 	width: 100%;
 	overflow: auto;
