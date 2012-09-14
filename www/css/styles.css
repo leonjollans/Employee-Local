@@ -52,6 +52,10 @@ li .list-icon {
 	height: 80px;
 }
 
+.info-list li {
+	height: 30px;
+}
+
 .icon-list .line1 {
 	padding-top: 14px;
 }
