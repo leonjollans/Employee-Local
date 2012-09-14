@@ -4,10 +4,14 @@ var dbCreated = false;
 var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
 
 $(document).ready(function () {
+
+    window.Log('in (document).ready');
     //if (!setup) setup();
 });
 
 function setup() {
+
+    window.Log('in setup');
     db = window.openDatabase("EmployeeDirectoryDB", "1.0", "PhoneGap Demo", 200000);
     if (dbCreated)
     	db.transaction(getEmployees, transaction_error);
@@ -27,11 +31,15 @@ function transaction_error(tx, error) {
 }
 
 function populateDB_success() {
+    window.Log('populatedb success');
     db.transaction(getEmployees, transaction_error);
 	dbCreated = true;
 }
 
 function getEmployees(tx) {
+
+    window.Log('in getEmployees');
+
 	var sql = "select e.id, e.firstName, e.lastName, e.title, e.picture, count(r.id) reportCount " + 
 				"from employee e left join employee r on r.managerId = e.id " +
 				"group by e.id order by e.lastName, e.firstName";
