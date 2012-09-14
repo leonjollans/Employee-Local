@@ -5,38 +5,20 @@
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <link rel="stylesheet" href="css/styles.css" />
     
-        <script type="text/javascript" src="js/phonegap.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/log.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/phonegap.js"></script>
+        <script type="text/javascript" src="js/init.js"></script>
 
-        <script type="text/javascript">
-
-            function onDeviceReady() {
-                window.Log('in onDeviceReaady');
-                alert('device ready');
-                setup();
-            }
-
-            function onBodyLoad() {
-
-                window.Log('in onBodyLoad');
-
-                //if phonegap, need to toggle these
-                if (typeof navigator.device == "undefined") {
-
-                    window.Log('wireup deviceready');
-                    document.addEventListener("deviceready", onDeviceReady, false);
-                } else {
-
-                    window.Log('no device?, set up manually');
-                    onDeviceReady();
-                }
-            }
-
-        </script>
     </head>
 
     <body onload="onBodyLoad()">
+        
+        <div id="deviceready">
+            <p class="status pending blink">Connecting to Device</p>
+            <p class="status complete blink hide">Device is Ready</p>
+        </div>
+
 	    <div class="header">
 		    <h1>People Here</h1>
 	    </div>
@@ -61,8 +43,14 @@
         </div>
 	
 	    <div id="busy">Loading...</div>
+        
         <script type="text/javascript" src="js/iscroll.js"></script>
         <script type="text/javascript" src="js/employeelist.js"></script>
+
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+
     </body>
 
 </html>
