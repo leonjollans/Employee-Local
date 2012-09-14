@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>People Here</title>
+        <title>Stuff</title>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <link rel="stylesheet" href="css/styles.css" />
 
@@ -12,12 +12,21 @@
                 setup();
             }
 
-            document.addEventListener("deviceready", onDeviceReady, false);
+            function onBodyLoad() {
+
+                //if phonegap, need to toggle these
+                if (typeof navigator.device == "undefined") {
+                    document.addEventListener("deviceready", onDeviceReady, false);
+                } else {
+                    onDeviceReady();
+                }
+
+            }
 
         </script>
     </head>
 
-    <body>
+    <body onload="onBodyLoad()">
 	    <div class="header">
 		    <h1>People Here</h1>
 	    </div>
