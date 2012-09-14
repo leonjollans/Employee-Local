@@ -1,8 +1,8 @@
-window.templog = [];
+window.tempLog = [];
 
 window.Log = function (message) {
     console.log(message);
-    templog.push(message);
+    tempLog.push(message);
 };
 
 window.getLog = function () {
